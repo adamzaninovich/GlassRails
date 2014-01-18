@@ -14,8 +14,6 @@ end
 
 # Google OAuth and Mirror API
 gem 'mirror-api', '0.1.1'
-gem "google-api-client"
-gem "rest-client"
 
 gem "twitter-bootstrap-rails"
 

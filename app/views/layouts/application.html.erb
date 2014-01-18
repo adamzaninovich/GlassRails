@@ -33,6 +33,73 @@
     <!-- For all other devices -->
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+    <style>
+      .glass-card * {
+       font: inherit;
+       color: inherit;
+      }
+      .glass-card {
+        position: relative;
+        width: 640px;
+        height: 360px;
+        display: block;
+        overflow: hidden;
+        margin: 20px 0;
+      }
+      .glass-card article {
+        width: 640px;
+        height: 360px;
+        display: block;
+        overflow: hidden;
+
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        background-color: #000;
+        color: #fff;
+
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+        font-weight: 100;
+        font-size: 40px;
+        text-shadow: 0 1px 1px #000;
+      }
+      .glass-card section {
+        margin: 40px 40px 0 40px;
+        padding: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 80px;
+        overflow: hidden;
+      }
+      .glass-card footer {
+        margin: 0 40px 28px 40px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 40px;
+
+        font-weight: 300;
+        font-size: 26px;
+        line-height: 1.4em;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+      }
+      .glass-card footer > div {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      .glass-card h2 { margin: 40px 0; }
+      .glass-card .blue { color: #34a7ff; }
+      .glass-card .red { color: #c33; }
+      .glass-card .muted { color: #808080; }
+
+    </style>
   </head>
   <body>
 
@@ -47,15 +114,15 @@
           <a class="brand" href="/">GlassRails</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-	            <% if user_signed_in? %>
-				  <li>
-				  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-				  </li>
-				<% else %>
-				  <li>
-				  <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %>
-				  </li>
-				<% end %>
+              <% if user_signed_in? %>
+                <li>
+                <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+                </li>
+              <% else %>
+                <li>
+                <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %>
+                </li>
+              <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -68,7 +135,9 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
+              <li><%= link_to 'Show All Timeline Cards', example_show_cards_path %></li>
               <li><%= link_to 'Insert Test Timeline Card', example_add_card_path %></li>
+              <li><%= link_to 'Delete All Timeline Cards', example_delete_cards_path %></li>
               <li><%= link_to 'Get Last Known Location', example_get_location_path %></li>
             </ul>
           </div><!--/.well -->
