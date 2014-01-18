@@ -1,2 +1,12 @@
-<h1>Inserted Timeline Card</h1>
-<div class="glass-card"><%= @card.html.html_safe %></div>
+<h1>Add a Card</h1>
+<%= form_tag example_add_card_path do %>
+  <div class="form-group">
+    <%= label_tag :title, "Title" %>
+    <%= text_field_tag :title %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :artist, "Artist" %>
+    <%= text_field_tag :artist %>
+  </div>
+  <%= submit_tag "Add Card", class: 'btn' %>
+<% end %>

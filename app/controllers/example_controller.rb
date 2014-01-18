@@ -17,8 +17,11 @@ class ExampleController < ApplicationController
   end
 
   def add_card
-    title = "Take Me To Church"
-    artist = "Hozier"
+  end
+
+  def add_card_result
+    title = params[:title]
+    artist = params[:artist]
 
     card = {
       bundle_id: "ekho",
