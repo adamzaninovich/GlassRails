@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'pry'
 
 group :production, :staging do
   gem "pg"
@@ -13,8 +12,11 @@ group :development, :test do
   gem "sqlite3"
 end
 
+# Google OAuth and Mirror API
+gem 'mirror-api', '0.1.1'
 gem "google-api-client"
 gem "rest-client"
+
 gem "twitter-bootstrap-rails"
 
 gem "devise"
